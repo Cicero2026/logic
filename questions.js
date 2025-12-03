@@ -81,7 +81,7 @@ const allQuestions = [
       "D) The tilde (～)"
     ],
     "correctIndex": 3,
-    "explanation": ""
+    "explanation": "Language Explanation (口語化解釋) English Again, this is standard logic notation. The tilde (～) is the widely accepted symbol for the negation operator, meaning \"it is not the case that\" or simply \"not.\" The others represent \"if and only if\" (≡), \"and\" (・), and \"or\" (v). 中文 (Chinese) 這也是標準的邏輯符號規範。 波浪號 (~) 是公認的否定運算符號，它的意思就是「情況並非如此」或簡單地說「非」。其他的符號分別代表「若且唯若」（≡）、「且」（・）和「或」（v）。"
   },
   {
     "id": 8,
@@ -333,7 +333,7 @@ const allQuestions = [
       "D. “If I eat breakfast, then I will exercise.” and “If I exercise, then I will eat breakfast.”"
     ],
     "correctIndex": 1,
-    "explanation": ""
+    "explanation": "These two sentences always have the same truth value in every possible scenario. Let P = \"I will eat breakfast\" and Q = \"I will exercise\". The first sentence is \"~(P v Q)\". The second sentence is \"~P & ~Q\". If you construct a truth table for both, you will find their final truth value columns are identical. 這兩個句子在所有可能的情況下，真值永遠相同。 設 P =「我今天會吃早餐」，Q =「我今天會運動」。第一個句子是「~(P v Q)」。第二個句子是「~P & ~Q」。如果你為這兩者建構一個真值表，你會發現它們最終的真值欄位是完全一樣的。"
   },
   {
     "id": 29,
@@ -361,6 +361,102 @@ const allQuestions = [
   },
   {
     "id": 31,
+    "question": "1. Which rule of inference is correctly illustrated by the following argument? If it rains, the ground gets wet. It rains. ∴ The ground gets wet.",
+    "options": [
+      "A) Modus ponens",
+      "B) Modus tollens",
+      "C) Disjunctive syllogism",
+      "D) Simplification"
+    ],
+    "correctIndex": 0,
+    "explanation": "English: Modus Ponens (M.P.) is the rule of affirming the antecedent. It has the form: P ⊃ Q, P, therefore Q. The argument says, \"If it rains (P), then the ground gets wet (Q). It rains (P). Therefore, the ground gets wet (Q).\"\n中文: 肯定前件式 (Modus Ponens, M.P.) 是肯定條件句的前件的規則。它的形式是：如果 P 那麼 Q，P 為真，因此 Q 為真。這個論證是說：「如果下雨 (P)，那麼地會濕 (Q)。現在下雨了 (P)。因此，地是濕的 (Q)。」"
+  },
+  {
+    "id": 32,
+    "question": "2. Which rule of inference is correctly illustrated by the following argument? If the alarm is set, the building is secure. The building is not secure. ∴ The alarm is not set.",
+    "options": [
+      "A) Modus ponens",
+      "B) Modus tollens",
+      "C) Hypothetical syllogism",
+      "D) Addition"
+    ],
+    "correctIndex": 1,
+    "explanation": "English: Modus Tollens (M.T.) is the rule of denying the consequent. It has the form: P ⊃ Q, ~Q, therefore ~P. The argument denies the conclusion of the conditional (The building is not secure, ~Q) to deny the starting condition (The alarm is not set, ~P).\n中文: 否定後件式 (Modus Tollens, M.T.) 是否定條件句的後件的規則。它的形式是：如果 P 那麼 Q，非 Q 為真，因此非 P 為真。這個論證透過否定條件句的結論（大樓不安全，~Q）來否定其起始條件（警報未設定，~P）。"
+  },
+  {
+    "id": 33,
+    "question": "3. Which rule of inference is used in the following argument? If you study hard, you will pass the exam. If you pass the exam, you will graduate. ∴ If you study hard, you will graduate.",
+    "options": [
+      "A) Conjunction",
+      "B) Hypothetical syllogism",
+      "C) Constructive dilemma",
+      "D) Disjunctive syllogism"
+    ],
+    "correctIndex": 1,
+    "explanation": "English: Hypothetical Syllogism (H.S.) is the chain rule. It has the form: P ⊃ Q, Q ⊃ R, therefore P ⊃ R. The common term (passing the exam) links the two premises together to form a new conditional conclusion.\n中文: 假言三段論 (Hypothetical Syllogism, H.S.) 是鍊式規則。它的形式是：如果 P 那麼 Q，如果 Q 那麼 R，因此如果 P 那麼 R。兩個前提的共同項（通過考試）將它們連結起來，從而得出一個新的條件句結論。"
+  },
+  {
+    "id": 34,
+    "question": "4. Which rule of inference is correctly applied in the following? Either the keys are in the drawer or they are in the bag. The keys are not in the drawer. ∴ The keys are in the bag.",
+    "options": [
+      "A) Disjunctive syllogism",
+      "B) Simplification",
+      "C) Addition",
+      "D) Constructive dilemma"
+    ],
+    "correctIndex": 0,
+    "explanation": "English: Disjunctive Syllogism (D.S.) is the elimination rule. It has the form: P v Q, ~P, therefore Q. Given an \"either/or\" statement, if you deny one of the options, you must conclude the other option is true.\n中文: 選言三段論 (Disjunctive Syllogism, D.S.) 是排除規則。它的形式是：P 或 Q，非 P 為真，因此 Q 為真。當給定一個「要嘛/要嘛」的語句時，如果你否定了其中一個選項，你就必須推論出另一個選項是真的。"
+  },
+  {
+    "id": 35,
+    "question": "5. Which rule of inference is illustrated here? The light is on and the window is open. ∴ The light is on.",
+    "options": [
+      "A) Conjunction",
+      "B) Simplification",
+      "C) Modus tollens",
+      "D) Addition"
+    ],
+    "correctIndex": 1,
+    "explanation": "English: Simplification (Simp.) is the rule for extracting one part of a conjunction. It has the form: P ・ Q, therefore P (or Q). Since a conjunction (P ・ Q) is only true if both parts are true, knowing the conjunction is true allows you to simplify and state one part is true.\n中文: 簡化律 (Simplification, Simp.) 是從合取句中提取其中一部分的規則。它的形式是：P 且 Q，因此 P。由於合取句 (P ・ Q) 只有在兩部分都為真時才為真，知道合取句為真，就可以簡化並斷定其中一部分為真。"
+  },
+  {
+    "id": 36,
+    "question": "6. Which rule of inference is illustrated here? The meeting is today. The meeting is online. ∴ The meeting is today and online.",
+    "options": [
+      "A) Conjunction",
+      "B) Addition",
+      "C) Disjunctive syllogism",
+      "D) Hypothetical syllogism"
+    ],
+    "correctIndex": 0,
+    "explanation": "English: Conjunction (Conj.) is the rule for putting two true statements together. It has the form: P, Q, therefore P・Q. If you know that both P and Q are true independently, you can validly conclude that the conjunction of P and Q is also true.\n中文: 結合律 (Conjunction, Conj.) 是將兩個真語句組合在一起的規則。它的形式是：P 為真，Q 為真，因此 P 且 Q 為真。如果你分別知道 P 和 Q 都是真的，你就可以有效地推論出 P 和 Q 的合取句也是真的。"
+  },
+  {
+    "id": 37,
+    "question": "7. Which rule of inference is used in the following argument? The file is saved. ∴ The file is saved or the computer crashed.",
+    "options": [
+      "A) Addition",
+      "B) Modus ponens",
+      "C) Simplification",
+      "D) Constructive dilemma"
+    ],
+    "correctIndex": 0,
+    "explanation": "English: Addition (Add.) is the rule for creating a disjunction. It has the form: P, therefore P v Q. Since a disjunction (P v Q) is true if at least one of its parts is true, if you know P is true, you can add any Q to it with the \"or\" operator, and the resulting sentence will still be true.\n中文: 增添律 (Addition, Add.) 是創建選言句的規則。它的形式是：P 為真，因此 P 或 Q 為真。由於選言句 (P v Q) 只要其中至少一部分為真就是真的，因此如果你知道 P 是真的，你就可以用「或」運算符號隨意加上任何 Q，結果的語句仍然會是真的。"
+  },
+  {
+    "id": 38,
+    "question": "8. Which of the following best describes the rule of constructive dilemma as used in this argument? If we hire Alice, the project will be on time. If we hire Bob, the project will be on time. Either we hire Alice or we hire Bob. ∴ The project will be on time.",
+    "options": [
+      "A) It combines two conditionals with a disjunction to infer a disjunction.",
+      "B) It denies the consequent of a conditional to deny its antecedent.",
+      "C) It uses a chain of conditionals to infer a new conditional.",
+      "D) It combines two conditionals with a disjunction to infer a single consequent."
+    ],
+    "correctIndex": 3,
+    "explanation": "English: Constructive Dilemma (C.D.) in this specific form is used to force a conclusion when the consequents are identical. The form is: (A ⊃ C) ・ (B ⊃ C), A v B, therefore C. Since we know A leads to C, and B also leads to C, and we know either A or B must happen, we can conclude C must happen.\n中文: 構成兩難式 (Constructive Dilemma, C.D.) 在這個特定形式中，用於在後件相同時得出結論。其形式為：(A ⊃ C) ・ (B ⊃ C)，A v B，因此 C。由於我們知道 A 會導致 C，B 也會導致 C，而且我們知道 A 或 B 必須發生，因此我們可以推論出 C 必然會發生。"
+  },
+  {
+    "id": 39,
     "question": "9. Which of the following English sentences best expresses a tautology (a statement that is true in every possible case)?",
     "options": [
       "A) Either it will rain tomorrow or it will not rain tomorrow.",
@@ -372,7 +468,7 @@ const allQuestions = [
     "explanation": "English: A tautology is a statement that is logically guaranteed to be true, regardless of the facts. This sentence has the form P v ~P (Law of Excluded Middle). Since 'P or not P' is always true, it is a tautology. Option B (P & ~P) is a contradiction, which is always false.\n中文: 恆真句 (Tautology) 是一個在邏輯上保證為真的語句，與事實無關。這個句子具有 P v ~P 的形式（排中律）。由於「P 或 非 P」永遠是真的，所以它是一個恆真句。選項 B (P & ~P) 是一個矛盾句，永遠是假的。"
   },
   {
-    "id": 32,
+    "id": 40,
     "question": "10. According to the method of constructing proofs with the 8 valid forms of inference, what is the main idea of \"working forward\" in a proof?",
     "options": [
       "A) Guess the truth values of all atomic propositions and build a truth table.",
@@ -384,7 +480,7 @@ const allQuestions = [
     "explanation": "English: Working forward means taking the initial true premises and applying the rules of inference (like Modus Ponens, Simplification, etc.) to derive new, true statements. This builds a chain of reasoning from the given information towards the desired conclusion.\n中文: 向前推導 (Working forward) 的意思是從給定的真前提開始，並應用推論規則（例如肯定前件式、簡化律等）來推導出新的、為真的語句。這建立了從給定資訊到所需結論的推理鏈。"
   },
   {
-    "id": 33,
+    "id": 41,
     "question": "1. Suppose the statement is P・Q. In which situation is this conjunction true?",
     "options": [
       "A) P is true and Q is false.",
@@ -393,10 +489,10 @@ const allQuestions = [
       "D) P is false and Q is false."
     ],
     "correctIndex": 2,
-    "explanation": ""
+    "explanation": "A conjunction (P・Q) is true if and only if both of its components (P and Q) are true. If either one is false, the entire conjunction is false. 連言句 (P・Q) 只有在其兩個組成部分（P 和 Q）都為真時才為真。只要其中任何一個為假，整個連言句就為假。"
   },
   {
-    "id": 34,
+    "id": 42,
     "question": "2. The book defines validity using truth tables. Which description is correct?",
     "options": [
       "A) An argument is valid if the premises are actually true.",
@@ -405,10 +501,10 @@ const allQuestions = [
       "D) An argument is valid if the argument sounds emotionally strong."
     ],
     "correctIndex": 1,
-    "explanation": ""
+    "explanation": "Validity means it is logically impossible for the premises to be true while the conclusion is false. A row where all premises are true and the conclusion is false is called a counterexample. A valid argument must be free of counterexamples. 有效性 (Validity) 意指在邏輯上，不可能出現前提都為真，但結論為假的情況。一個有效的論證（使用真值表檢驗時）必須沒有任何反例行。"
   },
   {
-    "id": 35,
+    "id": 43,
     "question": "3. Which pattern does this argument use? If it rains, the streets get wet. It is raining. Therefore, the streets get wet.",
     "options": [
       "A) Affirming the consequent",
@@ -417,10 +513,10 @@ const allQuestions = [
       "D) Disjunctive syllogism"
     ],
     "correctIndex": 1,
-    "explanation": ""
+    "explanation": "This argument follows the structure: If P, then Q. P. Therefore, Q. This is the definition of Modus Ponens (MP), or \"Affirming the Antecedent,\" which is a valid argument form. 這個論證遵循「如果 P，那麼 Q。P。所以，Q」的結構。這是肯定前件式 (Modus Ponens) 的定義，是一個有效的推論形式。"
   },
   {
-    "id": 36,
+    "id": 44,
     "question": "4. What mistake? If it rains, streets get wet. It is not raining. Therefore streets are not wet.",
     "options": [
       "A) Valid modus ponens",
@@ -429,10 +525,10 @@ const allQuestions = [
       "D) Fallacy of affirming the consequent"
     ],
     "correctIndex": 2,
-    "explanation": ""
+    "explanation": "The structure is: If P, then Q. Not P. Therefore, Not Q. This is an invalid argument form called the Fallacy of Denying the Antecedent. The streets could still be wet for another reason (e.g., a sprinkler) even if it is not raining. 這個結構是「如果 P，那麼 Q。非 P。所以，非 Q」。這是一個無效的論證形式，稱為否定前件的謬誤。因為即使沒有下雨，街道仍可能因其他原因而濕。"
   },
   {
-    "id": 37,
+    "id": 45,
     "question": "5. Choose the disjunctive syllogism:",
     "options": [
       "A) Either today or tomorrow. Today. Therefore not tomorrow.",
@@ -441,10 +537,10 @@ const allQuestions = [
       "D) If today then not tomorrow. Tomorrow. Therefore not today."
     ],
     "correctIndex": 1,
-    "explanation": ""
+    "explanation": "A Disjunctive Syllogism (DS) is a valid argument form with the structure: P or Q. Not P. Therefore Q. It concludes one disjunct by denying the other. 選言三段論 (Disjunctive Syllogism) 的有效形式是：「P 或 Q。非 P。所以，Q」。它透過排除其中一種可能性來證明另一種可能性必然成立。"
   },
   {
-    "id": 38,
+    "id": 46,
     "question": "6. When is a conditional P⊃Q false?",
     "options": [
       "A) Whenever Q is true.",
@@ -453,10 +549,10 @@ const allQuestions = [
       "D) Always false."
     ],
     "correctIndex": 2,
-    "explanation": ""
+    "explanation": "A conditional statement (P⊃Q, \"If P, then Q\") is only considered false when its antecedent (P, the \"if\" part) is true, but its consequent (Q, the \"then\" part) is false. This is the only way a promise or condition is broken. 條件句 (P⊃Q) 只有在前件 (P) 為真而後件 (Q) 為假時才為假。在所有其他情況下，它都為真。"
   },
   {
-    "id": 39,
+    "id": 47,
     "question": "7. What valid form? If I study, I pass. If I pass, I graduate. Therefore if I study, I graduate.",
     "options": [
       "A) Modus ponens",
@@ -465,10 +561,10 @@ const allQuestions = [
       "D) Disjunctive syllogism"
     ],
     "correctIndex": 2,
-    "explanation": ""
+    "explanation": "This argument follows the chain structure: If P, then Q. If Q, then R. Therefore, if P, then R. This is the definition of Hypothetical Syllogism (HS), also known as the Chain Rule, which is a valid argument form. 這個論證遵循「如果 P，那麼 Q。如果 Q，那麼 R。所以，如果 P，那麼 R」的鏈式結構。這是假言三段論 (Hypothetical Syllogism) 的定義，是一種有效的推論形式。"
   },
   {
-    "id": 40,
+    "id": 48,
     "question": "8. Which is true about a valid argument?",
     "options": [
       "A) Valid arguments must have a counterexample row.",
@@ -477,10 +573,10 @@ const allQuestions = [
       "D) Invalid arguments cannot be shown using truth tables."
     ],
     "correctIndex": 2,
-    "explanation": ""
+    "explanation": "A counterexample row is defined as a row in a truth table where all premises are True and the conclusion is False. Since validity means this scenario is impossible, a valid argument, by definition, has no counterexample rows. 「反例行」是指所有前提都為真但結論卻為假的那一行。根據有效性的定義，一個有效論證在邏輯上排除了這種情況，因此沒有任何反例行。"
   },
   {
-    "id": 41,
+    "id": 49,
     "question": "9. If a statement is a tautology, which of the following is true?",
     "options": [
       "A) It is true on every possible truth-value assignment.",
@@ -489,10 +585,10 @@ const allQuestions = [
       "D) It has no truth table."
     ],
     "correctIndex": 0,
-    "explanation": ""
+    "explanation": "A tautology is a statement that is necessarily true due to its logical structure, meaning it is true under every possible combination of truth values for its simple components. 恆真句 (Tautology) 是指一個語句無論其組成部分的真值如何變化，它在邏輯上永遠為真。在其真值表欄位中，每一項都是「真」。"
   },
   {
-    "id": 42,
+    "id": 50,
     "question": "10. Consider the statement P ∨ Q. In which situation is the disjunction false?",
     "options": [
       "A) P true, Q false.",
@@ -501,6 +597,6 @@ const allQuestions = [
       "D) P false, Q false."
     ],
     "correctIndex": 3,
-    "explanation": ""
+    "explanation": "An inclusive disjunction (P ∨ Q), \"P or Q\") is true if at least one component is true. The only way for the entire disjunction to be false is if both components (P and Q) are false. 析取句 (P ∨ Q) 在至少一個組成部分為真時就為真。因此，只有當其兩個組成部分（P 和 Q）都為假時，整個析取句才為假。"
   }
 ];
