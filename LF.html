@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>語言邏輯與批判思考 期末考題庫小測驗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0f172a;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #e5e7eb;
+    }
+    .game-shell {
+      width: 100%;
+      max-width: 800px;
+      padding: 16px;
+    }
+    .game-container {
+      background: #020617;
+      border-radius: 20px;
+      padding: 24px 24px 20px;
+      border: 1px solid #1f2937;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    h1 { margin: 0; font-size: 1.4rem; }
+    .subtitle {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+    .section { margin-top: 16px; }
+    .center { text-align: center; }
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: #e5e7eb;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: #111827;
+      color: #e5e7eb;
+      border: 1px solid #374151;
+    }
+    .btn-secondary:hover {
+      background: #020617;
+      transform: translateY(-1px);
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+    .counter {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+    .badge {
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: #111827;
+      border: 1px solid #1f2937;
+    }
+    .question-text {
+      margin-top: 8px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .options {
+      margin-top: 12px;
+      display: grid;
+      gap: 8px;
+    }
+    .option-btn {
+      width: 100%;
+      text-align: left;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.12s ease, transform 0.08s ease, border-color 0.12s ease;
+      white-space: normal;
+    }
+    .option-btn:hover {
+      background: #0b1120;
+      transform: translateY(-1px);
+    }
+    .option-btn.correct {
+      background: #14532d;
+      border-color: #22c55e;
+    }
+    .option-btn.wrong {
+      background: #7f1d1d;
+      border-color: #f87171;
+    }
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.95;
+      transform: none;
+    }
+    .feedback {
+      margin-top: 10px;
+      min-height: 40px;
+      font-size: 0.9rem;
+    }
+    .feedback-strong { font-weight: 600; }
+    .explanation {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    .controls {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .garden {
+      margin-top: 12px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #020617;
+      border: 1px dashed #374151;
+      font-size: 1.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      min-height: 32px;
+    }
+    .result-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .result-summary {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+    .result-tag {
+      margin-top: 4px;
+      font-size: 0.9rem;
+      color: #fbbf24;
+    }
+    @media (max-width: 600px) {
+      .game-container { padding: 20px 16px 16px; }
+      h1 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="game-shell">
+  <div class="game-container">
+    <!-- Header -->
+    <header>
+      <h1>語言邏輯與批判思考 期末考題庫小測驗</h1>
+      <div class="subtitle">課程：語言邏輯與批判思考</div>
+    </header>
+
+    <!-- Start Screen -->
+    <section id="startScreen" class="section center">
+      <p style="margin-top:16px; font-size:0.95rem; line-height:1.6;">
+        每次隨機抽出 <strong>5 題</strong> 期末考題庫，<br/>
+        答對長出 🌸 花 ＋ 鼓掌聲，答錯多一本 📚 書 ＋ 鼓聲。<br/>
+        做完一輪，看你的花園大，還是書堆高！
+      </p>
+      <button id="startBtn" class="btn btn-primary">開始測驗 Start</button>
+      <p style="margin-top:12px; font-size:0.8rem; color:#9ca3af;">
+        小提示：點擊「開始」後會播放輕快背景音樂（BG.MP3），<br/>
+        請確認瀏覽器允許播放聲音。
+      </p>
+    </section>
+
+    <!-- Quiz Screen -->
+    <section id="quizScreen" class="section" style="display:none;">
+      <div class="top-bar">
+        <div>題目進度：<span id="progressText">第 1 / 5 題</span></div>
+        <div class="counter">
+          <span class="badge">🌸 花：<span id="flowerCount">0</span></span>
+          <span class="badge">📚 書：<span id="bookCount">0</span></span>
+        </div>
+      </div>
+      <div class="question-text" id="questionText"></div>
+      <div class="options" id="optionsContainer"></div>
+
+      <div class="feedback" id="feedbackBox"></div>
+      <div class="garden" id="gardenBox" aria-label="花園與書架"></div>
+
+      <div class="controls">
+        <button id="nextBtn" class="btn btn-primary" disabled>下一題 Next</button>
+        <button id="backToStartBtn" class="btn btn-secondary">回首頁</button>
+      </div>
+    </section>
+
+    <!-- Result Screen -->
+    <section id="resultScreen" class="section center" style="display:none;">
+      <div class="result-title">這一輪完成！</div>
+      <div class="result-summary">
+        你總共答對 <strong><span id="finalCorrect">0</span></strong> 題，
+        答錯 <strong><span id="finalWrong">0</span></strong> 題。<br/>
+        🌸 花朵：<strong><span id="finalFlowers">0</span></strong>　
+        📚 書本：<strong><span id="finalBooks">0</span></strong>
+      </div>
+      <div id="resultMessage"></div>
+      <div id="resultTag" class="result-tag"></div>
+      <div class="garden" id="finalGarden"></div>
+      <div style="margin-top:14px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap;">
+        <button id="retryBtn" class="btn btn-primary">重新測驗（再抽五題）</button>
+        <button id="resultBackToStartBtn" class="btn btn-secondary">回首頁</button>
+      </div>
+      <p style="margin-top:10px; font-size:0.8rem; color:#9ca3af;">
+        每一輪都會從題庫中重新抽題，幫助你複習更多題目。
+      </p>
+    </section>
+  </div>
+</div>
+
+<!-- 音效（跟檔案同資料夾） -->
+<audio id="bgMusic" loop>
+  <source src="BG.MP3" type="audio/mpeg" />
+</audio>
+<audio id="applauseSound">
+  <source src="clap.MP3" type="audio/mpeg" />
+</audio>
+<audio id="drumSound">
+  <source src="drum.MP3" type="audio/mpeg" />
+</audio>
+<audio id="cheerSound">
+  <source src="WOW.MP3" type="audio/mpeg" />
+</audio>
+
+<!-- 題庫檔：我幫你生好的 questions.js（內含 const allQuestions = [...]） -->
+<script src="questions.js"></script>
+
+<script>
+  let currentRoundQuestions = [];
+  let currentIndex = 0;
+  let flowerCount = 0;
+  let bookCount = 0;
+  let hasAnswered = false;
+  const QUESTIONS_PER_ROUND = 5;
+
+  const startScreen = document.getElementById("startScreen");
+  const quizScreen = document.getElementById("quizScreen");
+  const resultScreen = document.getElementById("resultScreen");
+
+  const startBtn = document.getElementById("startBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const backToStartBtn = document.getElementById("backToStartBtn");
+  const retryBtn = document.getElementById("retryBtn");
+  const resultBackToStartBtn = document.getElementById("resultBackToStartBtn");
+
+  const progressText = document.getElementById("progressText");
+  const questionText = document.getElementById("questionText");
+  const optionsContainer = document.getElementById("optionsContainer");
+  const feedbackBox = document.getElementById("feedbackBox");
+  const gardenBox = document.getElementById("gardenBox");
+
+  const flowerCountSpan = document.getElementById("flowerCount");
+  const bookCountSpan = document.getElementById("bookCount");
+
+  const finalCorrectSpan = document.getElementById("finalCorrect");
+  const finalWrongSpan = document.getElementById("finalWrong");
+  const finalFlowersSpan = document.getElementById("finalFlowers");
+  const finalBooksSpan = document.getElementById("finalBooks");
+  const resultMessage = document.getElementById("resultMessage");
+  const resultTag = document.getElementById("resultTag");
+  const finalGarden = document.getElementById("finalGarden");
+
+  const bgMusic = document.getElementById("bgMusic");
+  const applauseSound = document.getElementById("applauseSound");
+  const drumSound = document.getElementById("drumSound");
+  const cheerSound = document.getElementById("cheerSound");
+
+  function shuffleArray(array) {
+    const arr = array.slice();
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function pickRandomQuestions() {
+    if (!Array.isArray(allQuestions) || allQuestions.length === 0) {
+      alert("題庫目前是空的，請確認 questions.js 是否正確載入。");
+      return [];
+    }
+    const shuffled = shuffleArray(allQuestions);
+    const count = Math.min(QUESTIONS_PER_ROUND, shuffled.length);
+    return shuffled.slice(0, count);
+  }
+
+  function playSound(soundEl) {
+    if (!soundEl) return;
+    soundEl.currentTime = 0;
+    soundEl.play().catch(() => {});
+  }
+
+  function tryPlayBgMusic() {
+    if (!bgMusic) return;
+    bgMusic.volume = 0.35;
+    bgMusic.play().catch(() => {
+      console.log("背景音樂被瀏覽器阻擋，需要使用者互動。");
+    });
+  }
+
+  function showStartScreen() {
+    startScreen.style.display = "block";
+    quizScreen.style.display = "none";
+    resultScreen.style.display = "none";
+  }
+  function showQuizScreen() {
+    startScreen.style.display = "none";
+    quizScreen.style.display = "block";
+    resultScreen.style.display = "none";
+  }
+  function showResultScreen() {
+    startScreen.style.display = "none";
+    quizScreen.style.display = "none";
+    resultScreen.style.display = "block";
+  }
+
+  function updateCounters() {
+    flowerCountSpan.textContent = flowerCount;
+    bookCountSpan.textContent = bookCount;
+  }
+
+  function resetRound() {
+    flowerCount = 0;
+    bookCount = 0;
+    currentIndex = 0;
+    hasAnswered = false;
+    currentRoundQuestions = pickRandomQuestions();
+    updateCounters();
+    gardenBox.innerHTML = "";
+    loadCurrentQuestion();
+    nextBtn.disabled = true;
+  }
+
+  function startGame() {
+    tryPlayBgMusic();
+    resetRound();
+    showQuizScreen();
+  }
+
+  function loadCurrentQuestion() {
+    const total = currentRoundQuestions.length;
+    if (currentIndex >= total || total === 0) {
+      showResult();
+      return;
+    }
+    const q = currentRoundQuestions[currentIndex];
+    progressText.textContent = `第 ${currentIndex + 1} / ${total} 題`;
+    questionText.textContent = q.question;
+
+    optionsContainer.innerHTML = "";
+    feedbackBox.innerHTML = "";
+    nextBtn.disabled = true;
+    hasAnswered = false;
+
+    q.options.forEach((optText, idx) => {
+      const btn = document.createElement("button");
+      btn.className = "option-btn";
+      btn.textContent = optText;
+      btn.addEventListener("click", () => handleAnswer(idx));
+      optionsContainer.appendChild(btn);
+    });
+  }
+
+  function handleAnswer(selectedIndex) {
+    if (hasAnswered) return;
+    hasAnswered = true;
+
+    const q = currentRoundQuestions[currentIndex];
+    const optionButtons = optionsContainer.querySelectorAll(".option-btn");
+    const correctIdx = q.correctIndex;
+
+    optionButtons.forEach((btn, idx) => {
+      btn.disabled = true;
+      if (idx === correctIdx) btn.classList.add("correct");
+      if (idx === selectedIndex && idx !== correctIdx) btn.classList.add("wrong");
+    });
+
+    if (selectedIndex === correctIdx) {
+      flowerCount += 1;
+      updateCounters();
+      playSound(applauseSound);
+      const span = document.createElement("span");
+      span.textContent = "🌸";
+      gardenBox.appendChild(span);
+      feedbackBox.innerHTML =
+        `<span class="feedback-strong">答對了！</span> 很好，繼續保持～`;
+    } else {
+      bookCount += 1;
+      updateCounters();
+      playSound(drumSound);
+      const span = document.createElement("span");
+      span.textContent = "📚";
+      gardenBox.appendChild(span);
+      const letters = ["A", "B", "C", "D"];
+      const yourChoice = letters[selectedIndex] || "";
+      const correctChoice = letters[correctIdx] || "";
+      feedbackBox.innerHTML =
+        `<span class="feedback-strong">這題答錯了。</span> 你選的是 ${yourChoice}，正確答案是 ${correctChoice}。`;
+    }
+
+    if (q.explanation) {
+      const expDiv = document.createElement("div");
+      expDiv.className = "explanation";
+      expDiv.textContent = q.explanation;
+      feedbackBox.appendChild(expDiv);
+    }
+
+    nextBtn.disabled = false;
+    nextBtn.textContent =
+      currentIndex === currentRoundQuestions.length - 1 ? "看結果 Result" : "下一題 Next";
+  }
+
+  function showResult() {
+    showResultScreen();
+    const total = currentRoundQuestions.length;
+    const correct = flowerCount;
+    const wrong = total - correct;
+
+    finalCorrectSpan.textContent = correct;
+    finalWrongSpan.textContent = wrong;
+    finalFlowersSpan.textContent = flowerCount;
+    finalBooksSpan.textContent = bookCount;
+
+    finalGarden.innerHTML = "";
+    for (let i = 0; i < flowerCount; i++) {
+      const span = document.createElement("span");
+      span.textContent = "🌸";
+      finalGarden.appendChild(span);
+    }
+    for (let i = 0; i < bookCount; i++) {
+      const span = document.createElement("span");
+      span.textContent = "📚";
+      finalGarden.appendChild(span);
+    }
+
+    if (flowerCount > bookCount) {
+      resultMessage.innerHTML =
+        "🌸 恭喜！這一輪你的邏輯花園比書堆還大。期末的表現看起來很有希望！";
+      resultTag.textContent = "眾人歡呼聲～～～";
+      playSound(cheerSound);
+    } else if (flowerCount === bookCount) {
+      resultMessage.innerHTML =
+        "平手！花和書一樣多，再練幾輪，你的實力會更穩。";
+      resultTag.textContent = "再多練幾次，你會看到自己的進步。";
+    } else {
+      resultMessage.innerHTML =
+        "📚 書比花多一點，代表這些題目還可以再複習一下。下一輪一定會更好！";
+      resultTag.textContent = "書多不是壞事，代表你正找到需要加強的地方。";
+    }
+  }
+
+  startBtn.addEventListener("click", startGame);
+  backToStartBtn.addEventListener("click", showStartScreen);
+  resultBackToStartBtn.addEventListener("click", showStartScreen);
+  retryBtn.addEventListener("click", () => { resetRound(); showQuizScreen(); });
+
+  nextBtn.addEventListener("click", () => {
+    if (!hasAnswered) return;
+    if (currentIndex >= currentRoundQuestions.length - 1) {
+      showResult();
+    } else {
+      currentIndex += 1;
+      loadCurrentQuestion();
+    }
+  });
+
+  showStartScreen();
+</script>
+</body>
+</html>
